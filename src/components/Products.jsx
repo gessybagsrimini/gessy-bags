@@ -1,107 +1,80 @@
 import borsa1 from '../assets/borsa1.png'
-import borsa2 from '../assets/borsa2.png'
 import borsa3 from '../assets/borsa3.jpg'
-import borsa4 from '../assets/borsa4.png'
 import borsa5 from '../assets/borsa5.png'
-import borsa6 from '../assets/borsa6.png'
-import borsa7 from '../assets/borsa7.png'
-import borsa8 from '../assets/borsa8.png'
 
-const products = [
+const categories = [
   {
-    name: 'Structured Tote',
-    category: 'Pelle',
-    image: borsa1,
-  },
-  {
-    name: 'City Shoulder',
-    category: 'Pelle',
-    image: borsa2,
-  },
-  {
-    name: 'Soft Hobo',
-    category: 'Pelle',
+    name: 'Borse moda',
+    description: 'Forme, colori e dettagli sempre aggiornati.',
     image: borsa3,
+    className: 'min-h-[28rem] lg:row-span-2 lg:min-h-[38rem]',
   },
   {
-    name: 'Minimal Crossbody',
-    category: 'Pelle',
-    image: borsa4,
+    name: 'Vera pelle',
+    description: 'Materiali autentici e modelli senza tempo.',
+    image: borsa1,
+    className: 'min-h-72 lg:min-h-0',
   },
   {
-    name: 'Classic Shopper',
-    category: 'Sintetico',
+    name: 'Altro',
+    description: 'Accessori e proposte per completare l’assortimento.',
     image: borsa5,
-  },
-  {
-    name: 'Compact Satchel',
-    category: 'Sintetico',
-    image: borsa6,
-  },
-  {
-    name: 'Evening Bag',
-    category: 'Sintetico',
-    image: borsa7,
-  },
-  {
-    name: 'Daily Backpack',
-    category: 'Sintetico',
-    image: borsa8,
+    className: 'min-h-72 lg:min-h-0',
   },
 ]
 
-const Products = () => {
+const Products = ({ showCta = true }) => {
   return (
-    <section id="products" className="bg-stone-50 py-28 sm:py-36">
+    <section id="products" className="bg-surface py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mb-16 grid gap-8 border-b border-stone-300 pb-12 lg:grid-cols-12 lg:items-end">
+        <div className="mb-12 grid gap-8 border-b border-sand pb-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-stone-500">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-accent">
               Ingrosso
             </p>
-            <h2 className="font-serif text-5xl font-normal tracking-tight text-stone-950 sm:text-6xl">
+            <h2 className="font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl">
               Collezione
             </h2>
           </div>
-          <p className="max-w-xl text-lg leading-8 text-stone-600 lg:col-span-5">
-            Selezione di borse in pelle e sintetiche, pensata per esposizioni
-            pulite e assortimenti continuativi.
+          <p className="max-w-xl text-lg leading-8 text-ink/70 lg:col-span-5">
+            Esplora le nostre categorie e componi un assortimento adatto al tuo
+            punto vendita.
           </p>
         </div>
 
-        <div
-          className="-mx-6 flex snap-x items-end gap-5 overflow-x-auto px-6 pb-10 sm:-mx-8 sm:gap-8 sm:px-8 lg:-mx-12 lg:px-12"
-          aria-label="Product carousel"
-        >
-          {products.map((product, index) => (
+        <div className="grid gap-4 lg:grid-cols-2 lg:grid-rows-2" aria-label="Categorie della collezione">
+          {categories.map((category) => (
             <article
-              key={product.name}
-              className="w-72 flex-none snap-start sm:w-80 lg:w-96"
+              key={category.name}
+              className={`group relative isolate overflow-hidden bg-sand ${category.className}`}
             >
-              <div className="h-96 overflow-hidden bg-stone-200">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mt-6 grid grid-cols-4 gap-4 border-t border-stone-300 pt-5">
-                <p className="font-serif text-2xl text-stone-400">
-                  {String(index + 1).padStart(2, '0')}
+              <img
+                src={category.image}
+                alt=""
+                className="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
+              <div className="flex h-full flex-col justify-end p-7 text-surface sm:p-9">
+                <h3 className="font-serif text-4xl sm:text-5xl">{category.name}</h3>
+                <p className="mt-3 max-w-md text-base leading-7 text-surface/80">
+                  {category.description}
                 </p>
-                <div className="col-span-3">
-                  <h3 className="text-lg font-medium text-stone-950">
-                    {product.name}
-                  </h3>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-stone-500">
-                    {product.category}
-                  </p>
-                </div>
               </div>
             </article>
           ))}
         </div>
+
+        {showCta && (
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/assortimento"
+              className="inline-flex items-center justify-center border border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:bg-transparent hover:text-accent"
+            >
+              Scopri l’assortimento
+            </a>
+          </div>
+        )}
       </div>
     </section>
   )

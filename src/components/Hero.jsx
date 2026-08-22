@@ -2,45 +2,48 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-20"
+      className="relative flex min-h-[85svh] items-center overflow-hidden pt-20"
       aria-label="Gessy Bags wholesale leather bags"
     >
       <img
-        src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=2200&q=90"
-        alt="Borse in pelle esposte in showroom"
-        className="absolute inset-0 h-full w-full object-cover"
+        src="/background.jpg"
+        alt="Showroom Gessy Bags a Rimini"
+        className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
       />
-      <div className="absolute inset-0 bg-black/35" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+      <div className="absolute inset-0 bg-ink/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/25" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
-        <div className="max-w-4xl text-white">
-          <p className="mb-8 text-xs font-semibold uppercase tracking-widest text-stone-200">
+      <div className="relative mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-12">
+        <div className="max-w-4xl text-surface">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-sand">
             Gessy Bags / Rimini
           </p>
-          <h1 className="font-serif text-6xl font-normal leading-none sm:text-7xl lg:text-8xl">
-            Pelletteria di Borse in Pelle e Sintetiche
+          <h1 className="font-serif text-5xl font-normal leading-[0.98] sm:text-6xl lg:text-7xl">
+            Ingrosso di Borse per negozi e rivenditori a Rimini
           </h1>
-          <div className="mt-10 max-w-2xl border-l border-white/40 pl-6">
-            <p className="text-xl leading-9 text-stone-100">
-              Linee essenziali, materiali versatili e forniture pensate per
-              boutique, showroom e rivenditori.
+          <div className="mt-8 max-w-2xl border-l border-sand/60 pl-6">
+            <p className="text-lg leading-8 text-surface/90 sm:text-xl">
+              Nel nostro showroom trovi una vasta scelta di borse moda, borse in pelle, valigie e portafogli.
             </p>
           </div>
 
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
           <a
-            href="#contact"
-            className="inline-flex w-full items-center justify-center border border-white bg-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-stone-950 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-950 sm:w-auto"
+            href="https://wa.me/393317419240"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex w-full items-center justify-center border border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:border-surface hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-ink sm:w-auto"
           >
-            Contattaci
+            Contattaci su WhatsApp
           </a>
             <a
-              href="#products"
-              className="inline-flex w-full items-center justify-center border border-white/50 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition hover:border-white hover:bg-white hover:text-stone-950 sm:w-auto"
+              href="https://www.google.com/maps/dir/?api=1&destination=Via+Arno+6,+47924+Rimini+RN"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center border border-sand/70 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:border-sand hover:bg-sand hover:text-ink sm:w-auto"
             >
-              Vedi collezione
+              Come raggiungerci
             </a>
           </div>
         </div>
