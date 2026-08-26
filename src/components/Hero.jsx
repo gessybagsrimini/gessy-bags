@@ -20,11 +20,11 @@ const Hero = () => {
             Gessy Bags / Rimini
           </p>
           <h1 className="font-serif text-5xl font-normal leading-[0.98] sm:text-6xl lg:text-7xl">
-            Ingrosso di Borse per negozi e rivenditori a Rimini
+            Ingrosso di Borse a Rimini
           </h1>
           <div className="mt-8 max-w-2xl border-l border-sand/60 pl-6">
             <p className="text-lg leading-8 text-surface/90 sm:text-xl">
-              Nel nostro showroom trovi una vasta scelta di borse moda, borse in pelle, valigie e portafogli.
+              Gessy Bags è un ingrosso di borse a Rimini specializzato nella vendita B2B a negozianti e rivenditori. Nel nostro magazzino trovi borse donna, pochette, zaini, valigie e accessori moda con nuovi arrivi durante tutto l'anno.
             </p>
           </div>
 
