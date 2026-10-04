@@ -4,11 +4,10 @@ import PageHero from '../components/PageHero'
 const ContattiPage = () => (
   <>
     <PageHero
-      eyebrow="Showroom"
       title="Contatti"
-      description="Scrivici, chiamaci o passa a trovarci a Rimini per conoscere disponibilità e collezioni."
+      description="Chiamaci, scrivici su WhatsApp o passa in showroom a Rimini per vedere le collezioni disponibili."
     />
-    <Contact />
+    <Contact showHeading={false} />
   </>
 )
 

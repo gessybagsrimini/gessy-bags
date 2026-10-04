@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-canvas text-ink">
-      <Header />
+      <Header currentPath={canonicalPath} />
       <main>
         <Page />
       </main>

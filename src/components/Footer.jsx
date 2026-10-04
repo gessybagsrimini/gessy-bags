@@ -1,61 +1,64 @@
+import { address, email, instagramUrl, openingHours, phones, whatsappUrl } from '../data/business'
+
 const Footer = () => {
   return (
-    <footer className="bg-ink px-6 py-16 text-surface sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-10 border-t border-sand/30 pt-10 sm:grid-cols-2 lg:grid-cols-5">
+    <footer className="bg-ink text-sand">
+      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 text-sm leading-relaxed sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-4xl font-normal tracking-wide">
-            Gessy Bags
-          </p>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-            Sede
-          </p>
-          <address className="mt-4 not-italic leading-7 text-sand">
-            Via Arno 6
+          <p className="font-serif text-xl text-surface">Gessy Bags</p>
+          <address className="mt-2 not-italic">
+            {address.street}
             <br />
-            Rimini, Italia
+            {address.postalCode} {address.city} ({address.province})
           </address>
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-            Azienda
-          </p>
-          <p className="mt-4 text-sm uppercase tracking-widest text-sand">
-            Gessy Bags di Ye Xiaorong <br></br>
-            Partita IVA: IT03985050404
-          </p>
+          <p className="font-semibold text-surface">Orari</p>
+          <ul className="mt-2">
+            {openingHours.map((row) => (
+              <li key={row.days}>
+                {row.days}: {row.hours}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-            Seguici
-          </p>
-          <div className="mt-4 flex flex-col items-start gap-3">
-            <a
-              href="https://www.instagram.com/gessybagsrimini"
-              target="_blank"
-              rel="noreferrer"
-              className="border-b border-sand/40 pb-1 text-sm uppercase tracking-widest text-sand transition hover:border-accent hover:text-accent"
-            >
-              Instagram ↗
-            </a>
-            <a
-              href="https://wa.me/393317419240"
-              target="_blank"
-              rel="noreferrer"
-              className="border-b border-sand/40 pb-1 text-sm uppercase tracking-widest text-sand transition hover:border-accent hover:text-accent"
-            >
-              WhatsApp ↗
-            </a>
-          </div>
+          <p className="font-semibold text-surface">Contatti</p>
+          <ul className="mt-2">
+            {phones.map((phone) => (
+              <li key={phone.href}>
+                <a href={phone.href} className="hover:text-surface">
+                  {phone.name} {phone.display}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href={`mailto:${email}`} className="hover:text-surface">
+                {email}
+              </a>
+            </li>
+            <li className="mt-2 flex gap-4">
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-surface">
+                WhatsApp
+              </a>
+              <a href={instagramUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-surface">
+                Instagram
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <p className="text-sm text-sand/75 sm:self-end lg:text-right">
-          &copy; 2026 Gessy Bags
-        </p>
+        <div>
+          <p className="font-semibold text-surface">Dati aziendali</p>
+          <p className="mt-2">
+            Gessy Bags di Ye Xiaorong
+            <br />
+            P. IVA IT03985050404
+          </p>
+          <p className="mt-4 text-sand/70">&copy; {new Date().getFullYear()} Gessy Bags</p>
+        </div>
       </div>
     </footer>
   )

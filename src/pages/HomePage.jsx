@@ -8,7 +8,7 @@ const HomePage = () => (
     <Hero />
     <VisitReasons />
     <Products />
-    <Contact stacked />
+    <Contact />
   </>
 )
 

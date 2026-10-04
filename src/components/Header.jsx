@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { address, openingHours, phones } from '../data/business'
 
 const navItems = [
   { label: 'Assortimento', href: '/assortimento' },
@@ -7,77 +8,71 @@ const navItems = [
   { label: 'Contatti', href: '/contatti' },
 ]
 
-const Header = () => {
-  const [hasShadow, setHasShadow] = useState(false)
+const Header = ({ currentPath }) => {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setHasShadow(window.scrollY > 12)
-
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const [weekdays, sunday] = openingHours
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-sand/70 bg-canvas/90 backdrop-blur transition-shadow ${
-        hasShadow ? 'shadow-lg' : 'shadow-none'
-      }`}
-    >
-      <nav
-        className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12"
-        aria-label="Main navigation"
-      >
-        <a
-          href="/"
-          className="font-serif text-2xl font-normal tracking-wide text-ink"
-          aria-label="Gessy Bags home"
-        >
-          Gessy Bags
-        </a>
-
-        <div className="hidden items-center gap-7 md:flex lg:gap-10">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-xs font-semibold uppercase tracking-widest text-ink/70 transition hover:text-accent"
-            >
-              {item.label}
-            </a>
-          ))}
+    <>
+      <div className="bg-ink text-sm text-sand">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-2 sm:px-8">
+          <p>
+            {address.street}, {address.city} · {weekdays.days} {weekdays.hours} · {sunday.days.toLowerCase()} {sunday.hours.toLowerCase()}
+          </p>
+          <a href={phones[0].href} className="hidden hover:text-surface sm:inline">
+            Tel. {phones[0].display}
+          </a>
         </div>
+      </div>
 
-        <button
-          type="button"
-          className="flex h-11 w-11 items-center justify-center border border-sand text-ink md:hidden"
-          aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+      <header className="sticky top-0 z-50 border-b border-sand bg-canvas">
+        <nav
+          className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
+          aria-label="Navigazione principale"
         >
-          <span className="text-xl leading-none">{menuOpen ? '×' : '☰'}</span>
-        </button>
-      </nav>
+          <a href="/" className="font-serif text-2xl text-ink">
+            Gessy Bags
+          </a>
 
-      {menuOpen && (
-        <nav className="border-t border-sand/70 bg-canvas px-6 py-5 md:hidden" aria-label="Mobile navigation">
-          <div className="mx-auto grid max-w-7xl gap-1">
+          <div className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="border-b border-sand/70 py-4 text-sm font-semibold uppercase tracking-widest text-ink/75 transition hover:text-accent"
-                onClick={() => setMenuOpen(false)}
+                aria-current={currentPath === item.href ? 'page' : undefined}
+                className="text-[15px] text-ink/80 hover:text-accent aria-[current=page]:text-accent"
               >
                 {item.label}
               </a>
             ))}
           </div>
+
+          <button
+            type="button"
+            className="px-1 py-2 text-[15px] text-ink md:hidden"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? 'Chiudi' : 'Menu'}
+          </button>
         </nav>
-      )}
-    </header>
+
+        {menuOpen && (
+          <nav className="border-t border-sand px-5 pb-3 md:hidden" aria-label="Navigazione mobile">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={currentPath === item.href ? 'page' : undefined}
+                className="block border-b border-sand/60 py-3 text-ink last:border-b-0 aria-[current=page]:text-accent"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        )}
+      </header>
+    </>
   )
 }
 

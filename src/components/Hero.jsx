@@ -1,52 +1,53 @@
+import { directionsUrl, whatsappUrl } from '../data/business'
+
 const Hero = () => {
   return (
-    <section
-      id="home"
-      className="relative flex min-h-[85svh] items-center overflow-hidden pt-20"
-      aria-label="Gessy Bags wholesale leather bags"
-    >
-      <img
-        src="/background.jpg"
-        alt="Showroom Gessy Bags a Rimini"
-        className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
-      />
-      <div className="absolute inset-0 bg-ink/45" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/25" />
-
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-12">
-        <div className="max-w-4xl text-surface">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-sand">
-            Gessy Bags / Rimini
-          </p>
-          <h1 className="font-serif text-5xl font-normal leading-[0.98] sm:text-6xl lg:text-7xl">
-            Ingrosso di Borse a Rimini
+    <section className="border-b border-sand">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 md:items-center md:py-16">
+        <div>
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+            Ingrosso di borse a Rimini
           </h1>
-          <div className="mt-8 max-w-2xl border-l border-sand/60 pl-6">
-            <p className="text-lg leading-8 text-surface/90 sm:text-xl">
-              Gessy Bags è un ingrosso di borse a Rimini specializzato nella vendita B2B a negozianti e rivenditori. Nel nostro magazzino trovi borse donna, pochette, zaini, valigie e accessori moda con nuovi arrivi durante tutto l'anno.
-            </p>
-          </div>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink/80">
+            Gessy Bags vende all'ingrosso a negozi e rivenditori. In magazzino
+            trovi borse donna, pochette, zaini, valigie e accessori moda, con
+            nuovi arrivi durante tutto l'anno.
+          </p>
+          <p className="mt-3 max-w-xl text-lg leading-relaxed text-ink/80">
+            Vieni a scegliere di persona in Via Arno 6, vicino al casello
+            Rimini Sud.
+          </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <a
-            href="https://wa.me/393317419240"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex w-full items-center justify-center border border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:border-surface hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-ink sm:w-auto"
-          >
-            Contattaci su WhatsApp
-          </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Via+Arno+6,+47924+Rimini+RN"
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center border border-sand/70 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:border-sand hover:bg-sand hover:text-ink sm:w-auto"
+              className="rounded-sm bg-accent px-6 py-3 text-center font-medium text-surface hover:bg-accent/90"
             >
-              Come raggiungerci
+              Scrivici su WhatsApp
+            </a>
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-sm border border-ink/30 px-6 py-3 text-center font-medium text-ink hover:border-ink"
+            >
+              Indicazioni stradali
             </a>
           </div>
         </div>
+
+        <figure>
+          <img
+            src="/background.jpg"
+            alt="Il magazzino Gessy Bags in Via Arno 6 a Rimini"
+            className="aspect-[4/3] w-full rounded-sm object-cover"
+          />
+          <figcaption className="mt-2 text-sm text-ink/60">
+            Il nostro magazzino in Via Arno 6.
+          </figcaption>
+        </figure>
       </div>
     </section>
   )

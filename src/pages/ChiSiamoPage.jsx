@@ -1,28 +1,41 @@
 import PageHero from '../components/PageHero'
+import { phones } from '../data/business'
 
 const ChiSiamoPage = () => (
   <>
     <PageHero
-      eyebrow="La nostra realtà"
       title="Chi siamo"
-      description="Gessy Bags è un punto di riferimento a Rimini per la vendita all’ingrosso di borse in pelle e sintetiche."
+      description="Gessy Bags è un ingrosso di borse in pelle e sintetiche in Via Arno 6 a Rimini."
     />
-    <section className="bg-surface px-6 py-24 sm:px-8 sm:py-32 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-12">
-        <p className="font-serif text-3xl leading-snug text-ink sm:text-4xl lg:col-span-5">
-          Un assortimento concreto, scelto con attenzione e vicino alle esigenze di chi vende.
-        </p>
-        <div className="space-y-6 text-lg leading-8 text-ink/70 lg:col-span-6 lg:col-start-7">
+
+    <section className="bg-surface">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-2 md:items-start">
+        <div className="space-y-4 text-lg leading-relaxed text-ink/80">
           <p>
-            Nel nostro showroom di Via Arno 6 accogliamo boutique e rivenditori con una selezione ampia di modelli, colori e materiali.
+            Da oltre 10 anni riforniamo negozi, boutique e rivenditori. Nel
+            magazzino teniamo un assortimento ampio di borse donna, pochette,
+            zaini, valigie e accessori, con nuovi arrivi durante tutto l’anno.
           </p>
           <p>
-            Seguiamo ogni cliente in modo diretto, dalla scelta dei prodotti alle informazioni sulla disponibilità, per rendere semplice ogni fornitura.
+            Seguiamo ogni cliente di persona: in showroom ti aiutiamo a
+            scegliere modelli, colori e quantità, e ti teniamo aggiornato su
+            disponibilità e novità.
           </p>
-          <a href="/contatti" className="inline-flex border-b border-accent pb-2 text-sm font-semibold uppercase tracking-widest text-accent">
-            Vieni a trovarci
+          <p>
+            Per informazioni chiedi di {phones[0].name} ({phones[0].display}) o
+            di {phones[1].name} ({phones[1].display}).
+          </p>
+          <a href="/contatti" className="inline-block text-accent underline underline-offset-4 hover:text-ink">
+            Orari e indicazioni
           </a>
         </div>
+
+        <img
+          src="/background.jpg"
+          alt="Scaffali e banchi del magazzino Gessy Bags"
+          className="aspect-[4/3] w-full rounded-sm object-cover"
+          loading="lazy"
+        />
       </div>
     </section>
   </>

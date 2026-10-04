@@ -1,34 +1,88 @@
+import borsa1 from '../assets/borsa1.png'
+import borsa2 from '../assets/borsa2.png'
+import borsa3 from '../assets/borsa3.jpg'
+import borsa4 from '../assets/borsa4.png'
+import borsa5 from '../assets/borsa5.png'
+import borsa6 from '../assets/borsa6.png'
+import borsa7 from '../assets/borsa7.png'
+import borsa8 from '../assets/borsa8.png'
 import PageHero from '../components/PageHero'
+import { whatsappUrl } from '../data/business'
+
+const categories = [
+  ['Borse donna', 'A mano, a spalla, a tracolla e shopper.'],
+  ['Pochette', 'Modelli da giorno e da sera.'],
+  ['Zaini', 'In pelle e in materiali sintetici.'],
+  ['Valigie', 'Valigie e borse da viaggio.'],
+  ['Accessori moda', 'Per completare l’assortimento del negozio.'],
+]
+
+const models = [
+  { image: borsa8, caption: 'Borsa a mano con foulard' },
+  { image: borsa6, caption: 'Borsa a spalla, più colori' },
+  { image: borsa4, caption: 'Borsa a spalla effetto cavallino' },
+  { image: borsa3, caption: 'Shopper intrecciata' },
+  { image: borsa2, caption: 'Zaino patchwork' },
+  { image: borsa1, caption: 'Borsa in paglia con manici in bambù' },
+  { image: borsa5, caption: 'Borsa all’uncinetto con frange' },
+  { image: borsa7, caption: 'Shopper in tela animalier' },
+]
 
 const AssortimentoPage = () => (
   <>
     <PageHero
-      eyebrow="Collezioni"
       title="Assortimento"
-      description="Borse da giorno, modelli compatti e proposte da sera in pelle e materiali sintetici."
+      description="Borse in pelle e in materiali sintetici, zaini, valigie e accessori. I modelli cambiano spesso: per vedere cosa c’è in magazzino oggi, passa in showroom o chiedi il catalogo."
     />
-    <section className="bg-canvas px-6 py-24 sm:px-8 sm:py-32 lg:px-12">
-      <div className="mx-auto max-w-7xl border-t border-sand pt-10">
-        <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-          Work in progress
+
+    <section className="bg-surface">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Categorie</h2>
+        <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map(([name, text]) => (
+            <div key={name} className="border-t border-sand pt-4">
+              <dt className="font-semibold text-ink">{name}</dt>
+              <dd className="mt-1 text-ink/70">{text}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section className="border-t border-sand bg-canvas">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Alcuni modelli</h2>
+        <p className="mt-2 text-ink/70">
+          Foto indicative. Disponibilità e colori variano in base agli arrivi.
         </p>
-        <div className="mt-6 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <h2 className="font-serif text-4xl leading-tight text-ink sm:text-6xl lg:col-span-7">
-            Stiamo preparando il nostro assortimento online.
-          </h2>
-          <p className="max-w-lg text-lg leading-8 text-ink/70 lg:col-span-4 lg:col-start-9">
-            Nel frattempo puoi contattarci per ricevere il catalogo aggiornato o
-            visitare il nostro showroom a Rimini.
+
+        <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4">
+          {models.map((model) => (
+            <li key={model.caption}>
+              <img
+                src={model.image}
+                alt={model.caption}
+                className="aspect-[4/5] w-full rounded-sm bg-sand object-cover"
+                loading="lazy"
+              />
+              <p className="mt-3 text-ink">{model.caption}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-12 rounded-sm border border-sand bg-surface p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
+          <p className="text-ink">
+            Vuoi le foto degli ultimi arrivi? Scrivici e ti mandiamo il catalogo aggiornato.
           </p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-block shrink-0 rounded-sm bg-accent px-5 py-3 font-medium text-surface hover:bg-accent/90 sm:mt-0"
+          >
+            Chiedi su WhatsApp
+          </a>
         </div>
-        <a
-          href="https://wa.me/393317419240"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-12 inline-flex border border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-surface transition hover:bg-transparent hover:text-accent"
-        >
-          Scrivici su WhatsApp
-        </a>
       </div>
     </section>
   </>
