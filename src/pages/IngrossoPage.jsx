@@ -20,8 +20,8 @@ const faqs = [
     answer: 'No, non c’è un ordine minimo.',
   },
   {
-    question: 'A chi vendete?',
-    answer: 'A negozi, boutique e rivenditori.',
+    question: 'Vendete anche ai privati?',
+    answer: 'No. Vendiamo solo all’ingrosso a negozi, boutique e rivenditori.',
   },
   {
     question: 'Quando siete aperti?',

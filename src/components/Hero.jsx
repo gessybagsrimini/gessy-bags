@@ -9,7 +9,7 @@ const Hero = () => {
             Ingrosso di borse a Rimini
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink/80">
-            Gessy Bags vende all'ingrosso a negozi e rivenditori. In magazzino
+            Gessy Bags vende solo all'ingrosso, a negozi e rivenditori. In magazzino
             trovi borse donna, pochette, zaini, valigie e accessori moda, con
             nuovi arrivi durante tutto l'anno.
           </p>
